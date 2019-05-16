@@ -2,9 +2,10 @@
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {
+  IndexHtmlWebpackPlugin,
+} = require('@angular-devkit/build-angular/src/angular-cli-files/plugins/index-html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const { join, resolve } = require('path');
 const webpack = require('webpack');
 
@@ -16,8 +17,10 @@ const configuration = (env = {}, argv) => {
       extensions: ['.js', '.ts'],
     },
     entry: {
+      // the order does not matter as we are using [entrypoints]
+      main: './src/main.ts',
       polyfills: './src/polyfills.ts',
-      main: ['./src/main.ts', './src/styles.css'],
+      styles: './src/styles.css',
     },
     module: {
       rules: [
@@ -127,13 +130,13 @@ const configuration = (env = {}, argv) => {
           ignore: ['.gitkeep'],
         }
       ),
-      new HtmlWebpackPlugin({
-        template: resolve(__dirname, 'src/index.html'),
-        inject: true,
-      }),
-      // the plugin must come after HtmlWebpackPlugin.
-      new ScriptExtHtmlWebpackPlugin({
-        defaultAttribute: 'defer',
+      new IndexHtmlWebpackPlugin({
+        baseHref: '/',
+        input: resolve('src/index.html'),
+        output: 'index.html',
+        // order matters
+        entrypoints: ['styles', 'polyfills', 'main'],
+        sri: true,
       }),
       new MiniCssExtractPlugin({
         filename: 'style.css',

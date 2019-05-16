@@ -144,6 +144,7 @@ const configuration = (env = {}, argv) => {
         mainPath: join(__dirname, 'src/main'),
         tsConfigPath: resolve(__dirname, './src/tsconfig.app.json'),
       }),
+      new webpack.ProgressPlugin(),
     ],
   };
 };

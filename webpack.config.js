@@ -1,5 +1,6 @@
 // @ts-check
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {
@@ -115,21 +116,6 @@ const configuration = (env = {}, argv) => {
     },
     plugins: [
       new CleanWebpackPlugin(),
-      new CopyWebpackPlugin(
-        [
-          {
-            from: 'src/assets',
-            to: 'assets',
-          },
-          {
-            from: 'src/static',
-            to: '',
-          },
-        ],
-        {
-          ignore: ['.gitkeep'],
-        }
-      ),
       new IndexHtmlWebpackPlugin({
         baseHref: '/',
         input: resolve('src/index.html'),
@@ -148,6 +134,24 @@ const configuration = (env = {}, argv) => {
         tsConfigPath: resolve(__dirname, './src/tsconfig.app.json'),
       }),
       new webpack.ProgressPlugin(),
+      new CircularDependencyPlugin({
+        exclude: /[\\\/]node_modules[\\\/]/,
+      }),
+      new CopyWebpackPlugin(
+        [
+          {
+            from: 'src/assets',
+            to: 'assets',
+          },
+          {
+            from: 'src/static',
+            to: '',
+          },
+        ],
+        {
+          ignore: ['.gitkeep'],
+        }
+      ),
     ],
   };
 };

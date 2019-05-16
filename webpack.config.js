@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const path = require('path');
+const { join, resolve } = require('path');
 const webpack = require('webpack');
 
 /** @type {(env: any, argv: any) => webpack.Configuration} config */
@@ -44,8 +44,8 @@ const configuration = (env = {}, argv) => {
             },
           ],
           exclude: [
-            path.resolve(__dirname, 'src/main.scss'),
-            path.resolve(__dirname, 'src/styles'),
+            resolve(__dirname, 'src/main.scss'),
+            resolve(__dirname, 'src/styles'),
           ],
         },
         {
@@ -67,8 +67,8 @@ const configuration = (env = {}, argv) => {
             },
           ],
           include: [
-            path.resolve(__dirname, 'src/main.scss'),
-            path.resolve(__dirname, 'src/styles'),
+            resolve(__dirname, 'src/main.scss'),
+            resolve(__dirname, 'src/styles'),
           ],
         },
         {
@@ -84,7 +84,7 @@ const configuration = (env = {}, argv) => {
       ],
     },
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: resolve(__dirname, 'dist'),
       filename: '[name].bundle.js',
       chunkFilename: '[id].chunk.js',
     },
@@ -107,7 +107,7 @@ const configuration = (env = {}, argv) => {
     },
     performance: {
       maxAssetSize: 1000000,
-      maxEntrypointSize: 1000000, 
+      maxEntrypointSize: 1000000,
       hints: 'error',
     },
     plugins: [
@@ -128,7 +128,7 @@ const configuration = (env = {}, argv) => {
         }
       ),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src/index.html'),
+        template: resolve(__dirname, 'src/index.html'),
         inject: true,
       }),
       // the plugin must come after HtmlWebpackPlugin.
@@ -140,9 +140,9 @@ const configuration = (env = {}, argv) => {
         chunkFilename: '[name].css',
       }),
       new AngularCompilerPlugin({
-        entryModule: path.join(__dirname, 'src/app/app.module#AppModule'),
-        mainPath: path.join(__dirname, 'src/main'),
-        tsConfigPath: path.resolve(__dirname, './src/tsconfig.app.json'),
+        entryModule: join(__dirname, 'src/app/app.module#AppModule'),
+        mainPath: join(__dirname, 'src/main'),
+        tsConfigPath: resolve(__dirname, './src/tsconfig.app.json'),
       }),
     ],
   };

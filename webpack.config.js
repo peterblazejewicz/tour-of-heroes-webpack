@@ -75,6 +75,12 @@ const configuration = (env = {}, argv) => {
           test: /\.html$/,
           loader: 'html-loader',
         },
+        {
+          // angular/angular#11580
+          // angular/angular#21560
+          test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
+          parser: { system: true },
+        },
       ],
     },
     output: {
@@ -105,12 +111,6 @@ const configuration = (env = {}, argv) => {
       hints: 'error',
     },
     plugins: [
-      // angular/angular#11580
-      new webpack.ContextReplacementPlugin(
-        /\@angular(\\|\/)core(\\|\/)fesm5/,
-        path.resolve(__dirname, 'src'),
-        {}
-      ),
       new CleanWebpackPlugin(),
       new CopyWebpackPlugin([
         {
@@ -140,10 +140,6 @@ const configuration = (env = {}, argv) => {
         tsConfigPath: path.resolve(__dirname, './src/tsconfig.app.json'),
       }),
     ],
-    stats: {
-      // angular/angular#21560
-      warningsFilter: /System.import/,
-    },
   };
 };
 

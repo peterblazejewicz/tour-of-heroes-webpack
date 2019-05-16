@@ -1,2 +1,15 @@
-# tour-of-heroes-webpack
-TOH by John Papa with Webpack 4
+# Tour Of Heroes
+
+`TOH` by John Papa built only with Webpack 4. This project uses `@ngtools/webpack` to work with Angular specific bundling (`.ts`, `.html`, `.css`, `.scss` files).
+
+The Webpack configuration file supports string type checking within VSCode thanks to `@ts-check` pragma.
+
+## TODO
+
+- [ ] split Webpack configuration as per best pracises section
+- [ ] Webpack dev server support
+- [ ] prod/dev/test builds
+
+## Author
+
+@peterblazejewicz

@@ -99,6 +99,11 @@ const configuration = (env = {}, argv) => {
         },
       },
     },
+    performance: {
+      maxAssetSize: 1000000,
+      maxEntrypointSize: 1000000, 
+      hints: 'error',
+    },
     plugins: [
       // angular/angular#11580
       new webpack.ContextReplacementPlugin(

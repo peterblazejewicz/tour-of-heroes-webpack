@@ -9,6 +9,7 @@ The Webpack configuration file supports string type checking within VSCode thank
 - [ ] split Webpack configuration as per best pracises section
 - [ ] Webpack dev server support
 - [ ] prod/dev/test builds
+- [ ] drop-in replacement with `@angular-devkit/build-webpack`
 
 ## Author
 

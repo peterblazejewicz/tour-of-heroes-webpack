@@ -112,16 +112,21 @@ const configuration = (env = {}, argv) => {
     },
     plugins: [
       new CleanWebpackPlugin(),
-      new CopyWebpackPlugin([
+      new CopyWebpackPlugin(
+        [
+          {
+            from: 'src/assets',
+            to: 'assets',
+          },
+          {
+            from: 'src/static',
+            to: '',
+          },
+        ],
         {
-          from: 'src/assets',
-          to: 'assets',
-        },
-        {
-          from: 'src/static',
-          to: '',
-        },
-      ]),
+          ignore: ['.gitkeep'],
+        }
+      ),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src/index.html'),
         inject: true,

@@ -19,6 +19,7 @@ npm start
 - [x] Webpack dev server support
 - [ ] prod/dev/test builds
 - [ ] drop-in replacement with `@angular-devkit/build-webpack`
+- [ ] CSS/SCSS support
 
 ## Author
 

@@ -6,7 +6,8 @@
     "build": "webpack --env.production --env.platform web",
     "start": "webpack-dev-server --mode=development --env.platform web",
     "lint": "tslint --config tslint.json --project tsconfig.json 'src/**/*.ts'",
-    "lint:fix": "tslint --config tslint.json --project tsconfig.json --fix 'src/**/*.ts'"
+    "lint:fix": "tslint --config tslint.json --project tsconfig.json --fix 'src/**/*.ts'",
+    "test": "karma start src/karma.conf.js"
   },
   "dependencies": {
     "@angular/animations": "7.2.15",

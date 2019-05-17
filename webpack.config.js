@@ -110,8 +110,8 @@ const configuration = (env = {}, argv) => {
       },
     },
     performance: {
-      maxAssetSize: 1000000,
-      maxEntrypointSize: 1000000,
+      maxAssetSize: 10000000,
+      maxEntrypointSize: 10000000,
       hints: 'error',
     },
     plugins: [
@@ -153,6 +153,13 @@ const configuration = (env = {}, argv) => {
         }
       ),
     ],
+    devServer: {
+      compress: true,
+      contentBase: join(__dirname, 'dist'),
+      historyApiFallback: true,
+      open: true,
+      port: 4200,
+    },
   };
 };
 

@@ -4,10 +4,19 @@
 
 The Webpack configuration file supports string type checking within VSCode thanks to `@ts-check` pragma.
 
+## Usage
+
+The TOH starts on the same port as CLI:
+
+```bash
+npm i
+npm start
+```
+
 ## TODO
 
 - [ ] split Webpack configuration as per best pracises section
-- [ ] Webpack dev server support
+- [x] Webpack dev server support
 - [ ] prod/dev/test builds
 - [ ] drop-in replacement with `@angular-devkit/build-webpack`
 

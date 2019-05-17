@@ -3,7 +3,13 @@ const webpack = require('webpack');
 
 /** @type {(env: any, argv: any) => webpack.Configuration} config */
 const configuration = (env = {}, argv) => {
-  return {};
+  return {
+    mode: 'development',
+    devtool: 'eval',
+    performance: {
+      hints: 'warning',
+    },
+  };
 };
 
 module.exports = configuration;

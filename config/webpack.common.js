@@ -14,7 +14,6 @@ const root = resolve(__dirname, '..');
 /** @type {(env: any, argv: any) => webpack.Configuration} config */
 const configuration = (env = {}, argv) => {
   return {
-    mode: env.production ? 'production' : 'development',
     resolve: {
       extensions: ['.js', '.ts', '.scss'],
     },
@@ -111,9 +110,8 @@ const configuration = (env = {}, argv) => {
       },
     },
     performance: {
-      maxAssetSize: 10000000,
-      maxEntrypointSize: 10000000,
-      hints: 'error',
+      maxAssetSize: 1000000,
+      maxEntrypointSize: 1000000,
     },
     plugins: [
       new CleanWebpackPlugin(),
@@ -154,13 +152,7 @@ const configuration = (env = {}, argv) => {
         }
       ),
     ],
-    devServer: {
-      compress: true,
-      contentBase: join(root, 'dist'),
-      historyApiFallback: true,
-      open: true,
-      port: 4200,
-    },
+    devServer: require('./parts/dev-server')(env, argv),
   };
 };
 

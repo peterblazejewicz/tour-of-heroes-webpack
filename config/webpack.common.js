@@ -92,6 +92,7 @@ const configuration = (env = {}, argv) => {
         {
           test: /\.html$/,
           loader: 'html-loader',
+          exclude: resolve(root, 'src/index.html'),
         },
         {
           // angular/angular#11580

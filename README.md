@@ -6,11 +6,20 @@ The Webpack configuration file supports string type checking within VSCode thank
 
 ## Usage
 
+### Development
+
 The TOH starts on the same port as CLI:
 
 ```bash
 npm i
 npm start
+```
+
+Linting:
+
+```bash
+npm run lint
+npm run lint:fix
 ```
 
 The Webpack configuration is being build depending on the mode:

@@ -15,13 +15,13 @@ const configuration = (env = {}, argv) => {
   return {
     mode: env.production ? 'production' : 'development',
     resolve: {
-      extensions: ['.js', '.ts'],
+      extensions: ['.js', '.ts', '.scss'],
     },
     entry: {
       // the order does not matter as we are using [entrypoints]
       main: './src/main.ts',
       polyfills: './src/polyfills.ts',
-      styles: './src/styles.css',
+      styles: './src/styles.scss',
     },
     module: {
       rules: [

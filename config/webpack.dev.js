@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const configuration = (env = {}, argv) => {
   return {
     mode: 'development',
-    devtool: 'eval',
+    devtool: 'inline-source-map',
     performance: {
       hints: 'warning',
     },

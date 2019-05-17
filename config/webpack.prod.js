@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const configuration = (env = {}, argv) => {
   return {
     mode: 'production',
+    devtool: 'nosources-source-map',
     performance: {
       hints: 'error',
     }

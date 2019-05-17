@@ -39,7 +39,14 @@ const configuration = (env = {}, argv) => {
                 sourceMap: true,
               },
             },
-            'postcss-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                config: {
+                  path: resolve(root, 'config/'),
+                },
+              },
+            },
             {
               loader: 'sass-loader',
               options: {
@@ -62,7 +69,14 @@ const configuration = (env = {}, argv) => {
                 sourceMap: true,
               },
             },
-            'postcss-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                config: {
+                  path: resolve(root, 'config/'),
+                },
+              },
+            },
             {
               loader: 'sass-loader',
               options: {

@@ -1,3 +1,6 @@
+# The best way to provide browsers is a .browserslistrc file in your project root,
+# or by adding a browserslist key to your package.json.
+#
 # This file is currently used by autoprefixer to adjust CSS to support the below specified browsers
 # For additional information regarding the format and rule options, please see:
 # https://github.com/browserslist/browserslist#queries

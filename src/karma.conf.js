@@ -11,7 +11,7 @@ module.exports = function(config) {
       skipFilesWithNoCoverage: true,
     },
     files: [
-      { pattern: 'src/base.spec.ts' },
+      { pattern: 'src/test.ts' },
       { pattern: 'src/app/**/*.+(ts|html)' },
     ],
     plugins: [
@@ -27,7 +27,7 @@ module.exports = function(config) {
 
     karmaTypescriptConfig: {
       bundlerOptions: {
-        entrypoints: /\.spec\.ts$/,
+        entrypoints: /(test|\.spec)\.ts$/,
         transforms: [require('karma-typescript-angular2-transform')],
       },
       compilerOptions: {

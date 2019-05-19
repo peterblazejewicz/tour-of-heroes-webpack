@@ -1,25 +1,28 @@
-// Karma configuration file, see link for more information
-// https://karma-runner.github.io/1.0/config/configuration-file.html
-
-module.exports = config => {
+const { resolve } = require('path');
+module.exports = function(config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine'],
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma'),
+    basePath: '..',
+    frameworks: ['jasmine', 'karma-typescript'],
+
+    files: [
+      { pattern: 'src/base.spec.ts' },
+      { pattern: 'src/app/**/*.+(ts|html)' },
     ],
-    client: {
-      clearContext: false, // leave Jasmine Spec Runner output visible in browser
+
+    preprocessors: {
+      '**/*.ts': ['karma-typescript'],
     },
-    coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../coverage/TourOfHeroes'),
-      reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true,
+
+    karmaTypescriptConfig: {
+      bundlerOptions: {
+        entrypoints: /\.spec\.ts$/,
+        transforms: [require('karma-typescript-angular2-transform')],
+      },
+      compilerOptions: {
+        lib: ['ES2015', 'DOM'],
+      },
     },
+
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,

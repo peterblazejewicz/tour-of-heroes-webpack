@@ -45,9 +45,9 @@ module.exports = configuration;
 
 ## TODO
 
-- [ ] split Webpack configuration as per best pracises section
+- [x] split Webpack configuration as per best pracises section
 - [x] Webpack dev server support
-- [ ] prod/dev/test builds
+- [x] prod/dev/test builds
 - [ ] drop-in replacement with `@angular-devkit/build-webpack`
 - [x] CSS/SCSS support
 

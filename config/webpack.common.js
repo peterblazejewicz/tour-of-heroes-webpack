@@ -110,16 +110,11 @@ const configuration = (env = {}, argv) => {
     optimization: {
       splitChunks: {
         cacheGroups: {
-          vendors: {
+          commons: {
             test: /[\\/]node_modules[\\/]/,
-            priority: -10,
+            name: 'vendor',
             filename: '[name].bundle.js',
-          },
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-            filename: '[name].bundle.js',
+            chunks: 'initial',
           },
         },
       },

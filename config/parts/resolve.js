@@ -17,6 +17,8 @@ const configuration = (env = {}, argv) => {
     );
     aliases[key] = value;
   });
+  console.log(paths);
+  console.log(aliases);
   return {
     extensions: ['.js', '.ts', '.scss'],
     alias: aliases,

@@ -14,7 +14,7 @@ const root = resolve(__dirname, '..');
 /** @type {(env: any, argv: any) => webpack.Configuration} config */
 const configuration = (env = {}, argv) => {
   return {
-    resolve: require('./parts/resolve-modules')(env, argv),
+    resolve: require('./parts/resolve')(env, argv),
     entry: {
       // the order does not matter as we are using [entrypoints]
       main: resolve(root, 'src/main.ts'),

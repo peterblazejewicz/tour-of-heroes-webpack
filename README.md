@@ -43,24 +43,6 @@ const configuration = (env = {}, argv) => {
 module.exports = configuration;
 ```
 
-#### Paths aliases support
-
-To add new TS aliases like `@toh`, modify `tsconfig.json` file. The webpack configuration takes care about creating module aliases based on TS configuration file:
-
-```ts
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from '@toh/dashboard/dashboard.component';
-import { HeroDetailComponent } from '@toh/hero-detail/hero-detail.component';
-import { HeroesComponent } from '@toh/heroes/heroes.component';
-```
-
-```json
-"paths": {
-  "@toh/*": ["src/app/*"]
-}
-```
-
 ## TODO
 
 - [x] split Webpack configuration as per best pracises section
@@ -68,7 +50,6 @@ import { HeroesComponent } from '@toh/heroes/heroes.component';
 - [x] prod/dev/test builds
 - [ ] drop-in replacement with `@angular-devkit/build-webpack`
 - [x] CSS/SCSS support
-- [x] path aliases support
 
 ## Author
 

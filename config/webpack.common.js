@@ -134,7 +134,7 @@ const configuration = (env = {}, argv) => {
         sri: true,
       }),
       new MiniCssExtractPlugin({
-        filename: 'style.css',
+        filename: 'static/style.css',
         chunkFilename: '[name].css',
       }),
       new AngularCompilerPlugin({

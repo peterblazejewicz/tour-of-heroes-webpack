@@ -43,6 +43,18 @@ const configuration = (env = {}, argv) => {
 module.exports = configuration;
 ```
 
+The generated output is split into directories in the following way:
+
+```text
+- dist/
+  - toh/
+    - assets/
+    - css/
+    - js/
+    index.html
+    favicon.ico
+```
+
 ## TODO
 
 - [x] split Webpack configuration as per best pracises section

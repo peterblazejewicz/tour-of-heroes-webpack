@@ -19,9 +19,9 @@ const configuration = (env = {}, argv) => {
     },
     entry: {
       // the order does not matter as we are using [entrypoints]
-      main: resolve(root, 'src/main.ts'),
-      polyfills: resolve(root, 'src/polyfills.ts'),
-      styles: resolve(root, 'src/styles.scss'),
+      'js/main.js': resolve(root, 'src/main.ts'),
+      'js/polyfills.js': resolve(root, 'src/polyfills.ts'),
+      'js/styles': resolve(root, 'src/styles.scss'),
     },
     module: {
       rules: [
@@ -55,8 +55,7 @@ const configuration = (env = {}, argv) => {
             },
           ],
           exclude: [
-            resolve(root, 'src/main.scss'),
-            resolve(root, 'src/styles'),
+            resolve(root, 'src/styles.scss')
           ],
         },
         {
@@ -85,7 +84,7 @@ const configuration = (env = {}, argv) => {
             },
           ],
           include: [
-            resolve(root, 'src/main.scss'),
+            resolve(root, 'src/styles.scss'),
             resolve(root, 'src/styles'),
           ],
         },
@@ -103,7 +102,7 @@ const configuration = (env = {}, argv) => {
       ],
     },
     output: {
-      path: resolve(root, 'dist'),
+      path: resolve(root, 'dist/toh/'),
       filename: '[name].bundle.js',
       chunkFilename: '[id].chunk.js',
     },
@@ -113,7 +112,7 @@ const configuration = (env = {}, argv) => {
           commons: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendor',
-            filename: '[name].bundle.js',
+            filename: 'js/[name].bundle.js',
             chunks: 'initial',
           },
         },
@@ -130,11 +129,11 @@ const configuration = (env = {}, argv) => {
         input: resolve(root, 'src/index.html'),
         output: 'index.html',
         // order matters
-        entrypoints: ['styles', 'polyfills', 'main'],
+        entrypoints: ['js/styles', 'js/polyfills.js', 'js/main.js'],
         sri: true,
       }),
       new MiniCssExtractPlugin({
-        filename: 'static/style.css',
+        filename: 'css/styles.css',
         chunkFilename: '[name].css',
       }),
       new AngularCompilerPlugin({

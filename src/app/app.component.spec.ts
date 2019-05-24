@@ -22,7 +22,7 @@ describe('AppComponent', () => {
   it('should display expectted title', () => {
     const debugElement = fixture.debugElement.query(By.css('h1'));
     fixture.detectChanges();
-    expect(debugElement.nativeElement.textContent).toEqual('Tour of Heroes');
+    expect(debugElement.nativeElement.textContent).toEqual('Tour of Heroes (DEV)');
   });
 
   it('should display a different test title', () => {

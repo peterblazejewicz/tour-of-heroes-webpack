@@ -12,7 +12,7 @@ module.exports = function(config) {
     },
     files: [
       { pattern: 'src/test.ts' },
-      { pattern: 'src/app/**/*.+(ts|html)' },
+      { pattern: 'src/**/*.+(ts|html)' },
     ],
     plugins: [
       require('karma-jasmine'),

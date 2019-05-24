@@ -10,9 +10,14 @@ const configuration = (env = {}, argv) => {
     entryModule: join(root, 'src/app/app.module#AppModule'),
     mainPath: join(root, 'src/main'),
     tsConfigPath: resolve(root, 'src/tsconfig.app.json'),
+    hostReplacementPaths: env.production
+      ? {
+          'environments/environment.ts': 'environments/environment.prod.ts',
+        }
+      : undefined,
     sourceMap: env.production ? false : true,
     skipCodeGeneration: false,
-    directTemplateLoading: true
+    directTemplateLoading: true,
   });
 };
 

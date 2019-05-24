@@ -1,5 +1,4 @@
 // @ts-check
-const { AngularCompilerPlugin } = require('@ngtools/webpack');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -54,9 +53,7 @@ const configuration = (env = {}, argv) => {
               },
             },
           ],
-          exclude: [
-            resolve(root, 'src/styles.scss')
-          ],
+          exclude: [resolve(root, 'src/styles.scss')],
         },
         {
           test: /\.css|scss$/,
@@ -136,11 +133,7 @@ const configuration = (env = {}, argv) => {
         filename: 'css/styles.css',
         chunkFilename: '[name].css',
       }),
-      new AngularCompilerPlugin({
-        entryModule: join(root, 'src/app/app.module#AppModule'),
-        mainPath: join(root, 'src/main'),
-        tsConfigPath: resolve(root, 'src/tsconfig.app.json'),
-      }),
+      require('./parts/angular-compiler')(env, argv),
       new webpack.ProgressPlugin(),
       new CircularDependencyPlugin({
         exclude: /[\\\/]node_modules[\\\/]/,

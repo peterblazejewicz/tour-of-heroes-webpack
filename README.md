@@ -62,6 +62,8 @@ The generated output is split into directories in the following way:
 - [x] prod/dev/test builds
 - [ ] drop-in replacement with `@angular-devkit/build-webpack`
 - [x] CSS/SCSS support
+- [x] ESLint test and fix support
+- [x] Prettier formatting check and fix support
 
 ## Author
 

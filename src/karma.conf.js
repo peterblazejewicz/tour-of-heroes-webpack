@@ -10,10 +10,7 @@ module.exports = function(config) {
       reports: ['html'],
       skipFilesWithNoCoverage: true,
     },
-    files: [
-      { pattern: 'src/test.ts' },
-      { pattern: 'src/**/*.+(ts|html)' },
-    ],
+    files: [{ pattern: 'src/test.ts' }, { pattern: 'src/**/*.+(ts|html)' }],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),

@@ -6,9 +6,6 @@ const configuration = (env = {}, argv) => {
   return {
     mode: 'development',
     devtool: 'inline-source-map',
-    performance: {
-      hints: 'warning',
-    },
   };
 };
 

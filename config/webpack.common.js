@@ -115,10 +115,7 @@ const configuration = (env = {}, argv) => {
         },
       },
     },
-    performance: {
-      maxAssetSize: 1000000,
-      maxEntrypointSize: 1000000,
-    },
+    performance: require('./parts/performance')(env, argv),
     plugins: [
       new CleanWebpackPlugin(),
       new IndexHtmlWebpackPlugin({

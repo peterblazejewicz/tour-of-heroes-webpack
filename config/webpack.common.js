@@ -6,11 +6,11 @@ const {
   IndexHtmlWebpackPlugin,
 } = require('@angular-devkit/build-angular/src/angular-cli-files/plugins/index-html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { join, resolve } = require('path');
-const webpack = require('webpack');
+const { resolve } = require('path');
+const { ProgressPlugin } = require('webpack');
 const root = resolve(__dirname, '..');
 
-/** @type {(env: any, argv: any) => webpack.Configuration} config */
+/** @type {(env: any, argv: any) => import('webpack').Configuration} config */
 const configuration = (env = {}, argv) => {
   return {
     resolve: {
@@ -131,7 +131,7 @@ const configuration = (env = {}, argv) => {
         chunkFilename: '[name].css',
       }),
       require('./parts/angular-compiler')(env, argv),
-      new webpack.ProgressPlugin(),
+      new ProgressPlugin(),
       new CircularDependencyPlugin({
         exclude: /[\\\/]node_modules[\\\/]/,
       }),

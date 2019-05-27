@@ -1,8 +1,7 @@
 // @ts-check
-const webpackDevServer = require('webpack-dev-server');
 const { resolve } = require('path');
 
-/** @type {(env: any, argv: any) => webpackDevServer.Configuration} configuration */
+/** @type {(env: any, argv: any) => import('webpack-dev-server').Configuration} configuration */
 const configuration = (env = {}, argv) => {
   return {
     compress: true,

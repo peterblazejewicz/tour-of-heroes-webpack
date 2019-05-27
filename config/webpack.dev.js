@@ -1,7 +1,5 @@
 // @ts-check
-const webpack = require('webpack');
-
-/** @type {(env: any, argv: any) => webpack.Configuration} config */
+/** @type {(env: any, argv: any) => import('webpack').Configuration} config */
 const configuration = (env = {}, argv) => {
   return {
     mode: 'development',

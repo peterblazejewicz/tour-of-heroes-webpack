@@ -8,8 +8,8 @@
     "lint": "tslint --config tslint.json --project tsconfig.json 'src/**/*.ts'",
     "lint:fix": "tslint --config tslint.json --project tsconfig.json --fix 'src/**/*.ts'",
     "test": "karma start src/karma.conf.js",
-    "prettier:check": "prettier --check \"src/**/*.{js,json,ts}\" \"config/**/*.{js,json,ts}\"",
-    "prettier:fix": "prettier --write \"src/**/*.{js,json,ts}\" \"config/**/*.{js,json,ts}\""
+    "prettier:check": "prettier --check \"src/**/*.{ts,js,json,css,scss,md}\" \"config/**/*.{ts,js,json,css,scss,md}\"",
+    "prettier:fix": "prettier --write \"src/**/*.{ts,js,json,css,scss,md}\" \"config/**/*.{ts,js,json,css,scss,md}\""
   },
   "dependencies": {
     "@angular/animations": "7.2.15",

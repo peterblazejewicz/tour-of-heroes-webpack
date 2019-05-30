@@ -1,6 +1,6 @@
 // @ts-check
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin').default;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {
   IndexHtmlWebpackPlugin,

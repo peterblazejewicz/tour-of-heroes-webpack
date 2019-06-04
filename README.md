@@ -1,5 +1,7 @@
 # Tour Of Heroes
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/peterblazejewicz/tour-of-heroes-webpack.svg)](https://greenkeeper.io/)
+
 `TOH` by John Papa built only with Webpack 4. This project uses `@ngtools/webpack` to work with Angular specific bundling (`.ts`, `.html`, `.css`, `.scss` files).
 
 The Webpack configuration file supports string type checking within VSCode thanks to `@ts-check` pragma.

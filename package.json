@@ -62,7 +62,7 @@
     "node-sass": "4.12.0",
     "postcss-loader": "3.0.0",
     "prettier": "^1.17.1",
-    "raw-loader": "2.0.0",
+    "raw-loader": "3.0.0",
     "sass-loader": "7.1.0",
     "to-string-loader": "1.1.5",
     "tslint": "5.17.0",

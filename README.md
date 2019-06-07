@@ -1,6 +1,7 @@
 # Tour Of Heroes
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/peterblazejewicz/tour-of-heroes-webpack.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/peterblazejewicz/tour-of-heroes-webpack.svg?branch=master)](https://travis-ci.org/peterblazejewicz/tour-of-heroes-webpack)
 
 `TOH` by John Papa built only with Webpack 4. This project uses `@ngtools/webpack` to work with Angular specific bundling (`.ts`, `.html`, `.css`, `.scss` files).
 

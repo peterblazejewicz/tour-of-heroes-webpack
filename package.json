@@ -28,7 +28,7 @@
     "zone.js": "0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.800.1",
+    "@angular-devkit/build-angular": "0.800.2",
     "@angular/compiler-cli": "8.0.0",
     "@ngtools/webpack": "8.0.2",
     "@types/circular-dependency-plugin": "5.0.0",
@@ -37,7 +37,7 @@
     "@types/jasmine": "3.3.13",
     "@types/jasminewd2": "2.0.6",
     "@types/mini-css-extract-plugin": "0.2.1",
-    "@types/node": "12.0.4",
+    "@types/node": "12.0.5",
     "@types/webpack": "4.4.32",
     "@types/webpack-dev-server": "3.1.6",
     "@types/webpack-merge": "4.1.5",

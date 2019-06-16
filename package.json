@@ -33,7 +33,7 @@
     "@ngtools/webpack": "8.0.3",
     "@types/circular-dependency-plugin": "5.0.0",
     "@types/copy-webpack-plugin": "5.0.0",
-    "@types/core-js": "2.5.1",
+    "@types/core-js": "2.5.2",
     "@types/jasmine": "3.3.13",
     "@types/jasminewd2": "2.0.6",
     "@types/mini-css-extract-plugin": "0.2.1",

@@ -6,8 +6,10 @@
 
 `TOH` by John Papa built only with Webpack 4. This project uses `@ngtools/webpack` to work with Angular specific bundling (`.ts`, `.html`, `.css`, `.scss` files).
 
-The Webpack configuration file supports string type checking within VSCode thanks to `@ts-check` pragma.
+The Webpack configuration files are written in TypeScript. For `whys`:
 
+- [Configuration Languages: TypeScript](https://webpack.js.org/configuration/configuration-languages/#typescript)
+- [Unambiguous Webpack config with Typescript](https://medium.com/webpack/unambiguous-webpack-config-with-typescript-8519def2cac7)
 ## Usage
 
 ### Development
@@ -28,23 +30,28 @@ npm run lint:fix
 
 The Webpack configuration is being build depending on the mode:
 
-```js
-// @ts-check
-const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
+```ts
+import { Configuration } from 'webpack';
+import WebpackMerge from 'webpack-merge';
 
-/** @type {(env: any, argv: any) => webpack.Configuration} config */
-const configuration = (env = {}, argv) => {
-  const common = require('./config/webpack.common')(env, argv);
-  if (env.production || env.prod) {
-    return webpackMerge(common, require('./config/webpack.prod')(env, argv));
+import { commonConfiguration } from './config/webpack.common';
+import { developmentConfiguration } from './config/webpack.dev';
+import { productionConfiguration } from './config/webpack.prod';
+
+const configuration: (env: any, argv: any) => Configuration = (env, argv) => {
+  if (env.production || env.prod || argv.mode === 'production') {
+    return WebpackMerge(
+      commonConfiguration(env, argv),
+      productionConfiguration(env, argv)
+    );
   }
-  if (env.development || env.dev) {
-    return webpackMerge(common, require('./config/webpack.dev')(env, argv));
-  }
+  return WebpackMerge(
+    commonConfiguration(env, argv),
+    developmentConfiguration(env, argv)
+  );
 };
 
-module.exports = configuration;
+export default configuration;
 ```
 
 The generated output is split into directories in the following way:

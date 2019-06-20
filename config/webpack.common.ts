@@ -1,17 +1,21 @@
-// @ts-check
-const CircularDependencyPlugin = require('circular-dependency-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const {
-  IndexHtmlWebpackPlugin,
-} = require('@angular-devkit/build-angular/src/angular-cli-files/plugins/index-html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { resolve } = require('path');
-const { ProgressPlugin } = require('webpack');
+import { IndexHtmlWebpackPlugin } from '@angular-devkit/build-angular/src/angular-cli-files/plugins/index-html-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { resolve } from 'path';
+import { Configuration, ProgressPlugin } from 'webpack';
+
+import { angularCompilerPluginFactory } from './parts/angular-compiler';
+import { webpackDevServerConfiguration } from './parts/dev-server';
+import { performanceConfiguration } from './parts/performance';
+
 const root = resolve(__dirname, '..');
 
-/** @type {(env: any, argv: any) => import('webpack').Configuration} config */
-const configuration = (env = {}, argv) => {
+export const commonConfiguration: (env: any, argv: any) => Configuration = (
+  env = {},
+  argv
+) => {
   return {
     resolve: {
       extensions: ['.js', '.ts', '.scss'],
@@ -115,7 +119,7 @@ const configuration = (env = {}, argv) => {
         },
       },
     },
-    performance: require('./parts/performance')(env, argv),
+    performance: performanceConfiguration(env, argv),
     plugins: [
       new CleanWebpackPlugin(),
       new IndexHtmlWebpackPlugin({
@@ -130,7 +134,7 @@ const configuration = (env = {}, argv) => {
         filename: 'css/styles.css',
         chunkFilename: '[name].css',
       }),
-      require('./parts/angular-compiler')(env, argv),
+      angularCompilerPluginFactory(env, argv),
       new ProgressPlugin(),
       new CircularDependencyPlugin({
         exclude: /[\\\/]node_modules[\\\/]/,
@@ -151,8 +155,6 @@ const configuration = (env = {}, argv) => {
         }
       ),
     ],
-    devServer: require('./parts/dev-server')(env, argv),
+    devServer: webpackDevServerConfiguration(env, argv),
   };
 };
-
-module.exports = configuration;

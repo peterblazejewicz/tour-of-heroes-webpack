@@ -1,10 +1,12 @@
-// @ts-check
-const { AngularCompilerPlugin, PLATFORM } = require('@ngtools/webpack');
-const { join, resolve } = require('path');
+import { AngularCompilerPlugin, PLATFORM } from '@ngtools/webpack';
+import { join, resolve } from 'path';
+
 const root = resolve(__dirname, '../..');
 
-/** @type {(env: any, argv: any) => AngularCompilerPlugin} configuration */
-const configuration = (env = {}, argv) => {
+export const angularCompilerPluginFactory: (
+  env: any,
+  argv: any
+) => AngularCompilerPlugin = (env, argv) => {
   return new AngularCompilerPlugin({
     platform: PLATFORM.Browser,
     entryModule: join(root, 'src/app/app.module#AppModule'),
@@ -20,5 +22,3 @@ const configuration = (env = {}, argv) => {
     directTemplateLoading: true,
   });
 };
-
-module.exports = configuration;

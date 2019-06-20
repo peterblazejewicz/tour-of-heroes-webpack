@@ -28,8 +28,12 @@ module.exports = function(config) {
         transforms: [require('karma-typescript-angular2-transform')],
       },
       compilerOptions: {
-        lib: ['ES2015', 'DOM'],
-      },
+        lib: ['es2018', 'dom'],
+        module: 'commonjs',
+        esModuleInterop: true,
+        skipLibCheck: true,
+        skipDefaultLibCheck: true,
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,

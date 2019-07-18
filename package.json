@@ -30,7 +30,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "0.801.0",
     "@angular/compiler-cli": "8.0.0",
-    "@ngtools/webpack": "8.1.0",
+    "@ngtools/webpack": "8.1.2",
     "@types/circular-dependency-plugin": "5.0.0",
     "@types/copy-webpack-plugin": "5.0.0",
     "@types/core-js": "2.5.1",

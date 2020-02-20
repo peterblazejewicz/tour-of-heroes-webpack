@@ -34,7 +34,7 @@
     "@types/circular-dependency-plugin": "^5.0.0",
     "@types/copy-webpack-plugin": "^5.0.0",
     "@types/core-js": "^2.5.2",
-    "@types/jasmine": "^3.4.0",
+    "@types/jasmine": "^3.5.6",
     "@types/jasminewd2": "^2.0.6",
     "@types/mini-css-extract-plugin": "^0.9.0",
     "@types/node": "^13.1.0",

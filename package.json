@@ -28,7 +28,7 @@
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.900.0",
+    "@angular-devkit/build-angular": "^0.901.0",
     "@angular/compiler-cli": "^8.2.6",
     "@ngtools/webpack": "^9.0.0",
     "@types/circular-dependency-plugin": "^5.0.0",

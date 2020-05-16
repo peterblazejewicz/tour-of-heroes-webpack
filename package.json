@@ -45,7 +45,7 @@
     "circular-dependency-plugin": "5.2.0",
     "clean-webpack-plugin": "^3.0.0",
     "codelyzer": "^5.1.0",
-    "copy-webpack-plugin": "^6.0.0",
+    "copy-webpack-plugin": "^6.0.1",
     "css-loader": "^3.2.0",
     "html-loader": "^0.5.5",
     "jasmine-core": "^3.4.0",
